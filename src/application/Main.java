@@ -39,6 +39,16 @@ public class Main {
         Seller sellernew = new Seller(null,"nick","nick@gmail.com",new Date(), 4.000,department);
         sellerDao.insert(sellernew);
         System.out.println("Inserted! new id  =" + sellernew.getId());
+        System.out.println();
+
+        System.out.println("=== teste 5 : seller update ====");
+        seller = sellerDao.findyById(1);
+        seller.setName("sara pereira");
+        sellerDao.update(seller);
+        System.out.println("updated completed !!");
+
+
+
 
     }
 }
