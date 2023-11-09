@@ -2,6 +2,7 @@ package db;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,9 +36,9 @@ public class DB {
     }
 
     private static Properties loadProperties(){
-        try(FileInputStream filestream = new FileInputStream("db.properties")){
+        try(InputStream imput = DB.class.getClassLoader().getResourceAsStream("db.properties")){
             Properties prop = new Properties();
-            prop.load(filestream);
+            prop.load(imput);
             return prop;
 
         }catch (IOException e){
